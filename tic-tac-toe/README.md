@@ -183,7 +183,7 @@ Pour lancer la version graphique du jeu :
 python main.py
 ```
 
-Lorsque vous lancez le jeu, le jeu vous demandera si vous souhaitez jouer en mode graphique ou terminal. Choisissez l'option graphique pour commencer une partie en mode GUI. Une fenêtre Tkinter s'ouvre avec le menu principal. Voici les options disponibles :
+Lorsque vous lancez le jeu, il vous demandera si vous souhaitez jouer en mode graphique ou terminal. Choisissez l'option graphique pour commencer une partie en mode GUI. Une fenêtre Tkinter s'ouvre avec le menu principal. Voici les options disponibles :
 
 - **1 vs 1** : Commence une partie entre deux joueurs humains.
 - **Contre l'ordinateur** : Commence une partie contre l'ordinateur. Vous devrez choisir le niveau de difficulté.
@@ -204,14 +204,14 @@ Pour lancer la version terminal du jeu :
 python main.py
 ```
 
-Lorsque vous lancez le jeu en mode terminal, le jeu vous demandera si vous souhaitez jouer en mode graphique ou terminal. Choisissez l'option terminal pour commencer une partie dans le terminal (CLI).
+Lorsque vous lancez le jeu, il vous demandera si vous souhaitez jouer en mode graphique ou terminal. Choisissez l'option terminal pour commencer une partie dans le terminal (CLI).
 
 #### Fonctionnalités du jeu terminal
 - **Affichage du plateau** : Le plateau de jeu est affiché dans le terminal.
 - **Saisie des mouvements** : Les joueurs saisissent les coordonnées de leurs mouvements (ligne et colonne).
 - **Gestion des tours et vérification des gagnants** : Le jeu gère automatiquement les tours des joueurs et vérifie les conditions de victoire ou d'égalité.
 
-### Fonctionnalités
+## Fonctionnalités
 
 - **Deux modes de jeu** : Version graphique avec Tkinter et version terminal.
 - **Jouabilité contre l'ordinateur** : Jouez contre l'ordinateur avec différents niveaux de difficulté.
