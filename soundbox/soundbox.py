@@ -8,7 +8,7 @@ pygame.mixer.init()
 
 # Variables globales
 current_ref = None
-ref_list = list(range(1, 13))
+displayed_refs = []
 
 # Fonction pour jouer un son
 def play_sound(sound_file):
@@ -20,20 +20,45 @@ def play_welcome_music():
     pygame.mixer.music.load('./sounds/welcome_music.mp3')
     pygame.mixer.music.play(-1)  # Boucle infinie
 
-# Fonction pour générer et jouer une référence aléatoire
+# Fonction pour générer et jouer une référence aléatoire parmi les 4 affichées
 def play_random_ref():
     global current_ref
-    current_ref = random.choice(ref_list)
+    current_ref = random.choice(displayed_refs)
     play_sound(f'./sounds/sound{current_ref}.mp3')
     result_label.config(text="")  # Efface le message de résultat
 
 # Fonction pour vérifier si la réponse est correcte
 def check_answer(idx):
     if idx == current_ref:
+        pygame.mixer.music.stop()  # Arrêter le son
         result_label.config(text="Correct!", fg="green")
+        update_displayed_refs()  # Change les références affichées
     else:
         result_label.config(text="Wrong! Try again.", fg="red")
     result_label.pack(pady=10)
+
+# Fonction pour mettre à jour les références affichées
+def update_displayed_refs():
+    global displayed_refs, current_ref
+    displayed_refs = random.sample(range(1, 13), 4)
+    current_ref = None
+    for widget in grid_frame.winfo_children():
+        widget.destroy()
+    create_grid()
+
+# Fonction pour créer la grille dans le Canvas
+def create_grid():
+    for j in range(4):
+        idx = displayed_refs[j]
+        frame = tk.Frame(grid_frame, width=200, height=200, bg="white", highlightbackground="black", highlightthickness=1)
+        frame.grid(row=0, column=j, padx=20, pady=20)
+        img = PhotoImage(file=f'./images/image{idx}.png')
+        button = tk.Button(frame, image=img, command=lambda idx=idx: check_answer(idx))
+        button.image = img
+        button.config(width=335, height=335)
+        button.pack(expand=True)
+        label = tk.Label(frame, text=f'Réf {idx}', font=("Roboto", 12), bg="white")
+        label.pack()
 
 # Fonction pour afficher la grille dans le Canvas
 def show_grid():
@@ -54,6 +79,7 @@ def show_grid():
     result_label.pack(pady=10)
 
     # Création du Canvas avec une barre de défilement verticale
+    global grid_frame
     canvas = tk.Canvas(root, bg="white", width=800, height=600, scrollregion=(0, 0, 1000, 1000))
     canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
@@ -66,18 +92,8 @@ def show_grid():
     grid_frame = tk.Frame(canvas, bg="white")
     canvas.create_window((0, 0), window=grid_frame, anchor='nw')
 
-    for i in range(3):
-        for j in range(4):
-            idx = i * 4 + j + 1
-            frame = tk.Frame(grid_frame, width=200, height=200, bg="white", highlightbackground="black", highlightthickness=1)
-            frame.grid(row=i, column=j, padx=20, pady=20)
-            img = PhotoImage(file=f'./images/image{idx}.png')
-            button = tk.Button(frame, image=img, command=lambda idx=idx: check_answer(idx))
-            button.image = img
-            button.config(width=320, height=320)
-            button.pack(expand=True)
-            label = tk.Label(frame, text=f'Réf {idx}', font=("Roboto", 12), bg="white")
-            label.pack()
+    # Mettre à jour les références affichées
+    update_displayed_refs()
 
     # Mettre à jour la taille du canvas
     grid_frame.update_idletasks()
