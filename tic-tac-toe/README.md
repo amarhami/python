@@ -175,15 +175,23 @@ if __name__ == "__main__":
 
 ## Usage
 
-### Version Graphique
-
-Pour lancer la version graphique du jeu :
+Pour lancer le jeu :
 
 ```bash
 python main.py
 ```
 
-Lorsque vous lancez le jeu, il vous demandera si vous souhaitez jouer en mode graphique ou terminal. Choisissez l'option graphique pour commencer une partie en mode GUI. Une fenêtre Tkinter s'ouvre avec le menu principal. Voici les options disponibles :
+Lorsque vous lancez le jeu avec le **main.py**, il vous demandera si vous souhaitez jouer en mode graphique ou terminal. Choisissez l'option graphique pour commencer une partie en mode GUI, ou terminal pour lancer une partie en CLI.
+
+### Version Graphique
+
+Pour lancer la version graphique du jeu :
+
+```bash
+python tic_tac_toe.py
+```
+
+Lorsque vous lancez le jeu en mode graphique, une fenêtre Tkinter s'ouvre avec le menu principal. Voici les options disponibles :
 
 - **1 vs 1** : Commence une partie entre deux joueurs humains.
 - **Contre l'ordinateur** : Commence une partie contre l'ordinateur. Vous devrez choisir le niveau de difficulté.
@@ -201,10 +209,10 @@ Lorsque vous lancez le jeu, il vous demandera si vous souhaitez jouer en mode gr
 Pour lancer la version terminal du jeu :
 
 ```bash
-python main.py
+python tic_tac_toe_terminal.py
 ```
 
-Lorsque vous lancez le jeu, il vous demandera si vous souhaitez jouer en mode graphique ou terminal. Choisissez l'option terminal pour commencer une partie dans le terminal (CLI).
+Lancement du jeu en mode terminal. Voici les options disponibles :
 
 #### Fonctionnalités du jeu terminal
 - **Affichage du plateau** : Le plateau de jeu est affiché dans le terminal.
