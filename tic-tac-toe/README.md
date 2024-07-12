@@ -1,5 +1,7 @@
 # Tic Tac Toe
 
+![Tic Tac Toe](./pub-tic.gif)
+
 Ce projet est une implémentation du jeu classique Tic Tac Toe en Python, avec deux versions : une version graphique utilisant Tkinter et une version en terminal. Ce projet comprend quatre fichiers principaux :
 
 1. `tic_tac_toe.py` : version graphique du jeu.

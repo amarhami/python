@@ -1,6 +1,6 @@
 # Soundbox Quiz - FIND THE REF
 
-![Soundbox Quiz](./images/background.png)
+![Soundbox Quiz](./images/pub-soundbox.gif)
 
 ## Introduction
 
